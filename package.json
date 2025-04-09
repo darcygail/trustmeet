@@ -1,0 +1,16 @@
+{
+  "name": "trustmeet",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "build": "tsc", 
+    "start": "parcel index.html"  
+  },
+  "dependencies": {
+    "ethers": "^5.0.0",
+    "parcel-bundler": "^1.12.5" 
+  },
+  "devDependencies": {
+    "typescript": "^4.5.0"
+  }
+}
