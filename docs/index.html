@@ -1,38 +1,69 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
+<html lang="zh">
 <head>
   <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>TrustMeet</title>
-  <script src="https://cdn.jsdelivr.net/npm/web3@1.10.0/dist/web3.min.js"></script>
-  <link rel="stylesheet" href="style.css" />
+  <script src="https://cdn.tailwindcss.com"></script>
 </head>
-<body>
-  <h1>TrustMeet</h1>
+<body class="bg-gray-100 font-sans p-4">
+  <div class="max-w-2xl mx-auto bg-white p-6 shadow-xl rounded-2xl space-y-6">
 
-  <div>
-    <label>押金金额 (ETH): <input id="depositAmount" type="number" /></label>
-    <label>见面时间: 
-        <input id="meetTime" type="datetime-local" />
-    </label>      
-    <button onclick="deployContract()">发起见面</button>
-  </div>
+    <h1 class="text-3xl font-bold text-center text-indigo-600">🤝 TrustMeet 见面合约</h1>
 
-  <div>
-    <label>合约地址: <input id="contractAddress" type="text" /></label>
-    <button onclick="loadContract()">加载合约</button>
-  </div>
+    <!-- 合约部署 -->
+    <div class="space-y-2">
+      <h2 class="text-xl font-semibold text-gray-700">1. 发起见面</h2>
+      <label class="block">
+        <span class="text-sm text-gray-600">见面时间</span>
+        <input id="meetTime" type="datetime-local" class="w-full mt-1 p-2 border rounded-lg" />
+      </label>
+      <label class="block">
+        <span class="text-sm text-gray-600">地点</span>
+        <input id="meetLocation" type="text" placeholder="如：人民广场麦当劳" class="w-full mt-1 p-2 border rounded-lg" />
+      </label>
+      <label class="block">
+        <span class="text-sm text-gray-600">押金 (ETH)</span>
+        <input id="deposit" type="number" step="0.01" class="w-full mt-1 p-2 border rounded-lg" />
+      </label>
+      <button onclick="deployContract()" class="w-full bg-indigo-600 text-white py-2 rounded-xl hover:bg-indigo-700 transition">
+        🚀 发起合约
+      </button>
+    </div>
 
-  <div>
-    <label>邀请地址: <input id="invitee" type="text" /></label>
-    <button onclick="invite()">邀请朋友</button>
-  </div>
+    <!-- 邀请功能 -->
+    <div class="border-t pt-4 space-y-2">
+      <h2 class="text-xl font-semibold text-gray-700">2. 邀请参与者</h2>
+      <div class="flex gap-2">
+        <input id="invitee" type="text" placeholder="钱包地址" class="flex-1 p-2 border rounded-lg" />
+        <button onclick="invite()" class="bg-green-500 hover:bg-green-600 text-white px-4 py-2 rounded-lg">
+          ➕ 邀请
+        </button>
+      </div>
+    </div>
 
-  <div>
-    <button onclick="join()">加入并支付押金</button>
-  </div>
+    <!-- 加入合约 -->
+    <div class="border-t pt-4 space-y-2">
+      <h2 class="text-xl font-semibold text-gray-700">3. 加入见面</h2>
+      <button onclick="join()" class="w-full bg-blue-500 text-white py-2 rounded-xl hover:bg-blue-600 transition">
+        🙋‍♂️ 支付押金加入
+      </button>
+    </div>
 
-  <div>
-    <button onclick="confirmArrival()">确认到达</button>
+    <!-- 到达确认 -->
+    <div class="border-t pt-4 space-y-2">
+      <h2 class="text-xl font-semibold text-gray-700">4. 到场确认</h2>
+      <button onclick="confirmArrival()" class="w-full bg-purple-500 text-white py-2 rounded-xl hover:bg-purple-600 transition">
+        📍 确认到达
+      </button>
+    </div>
+
+    <!-- 合约地址显示 -->
+    <div class="border-t pt-4">
+      <p class="text-sm text-gray-600">当前合约地址：</p>
+      <p id="contractAddress" class="text-indigo-700 font-mono break-all"></p>
+    </div>
+
   </div>
 
   <script src="app.js"></script>

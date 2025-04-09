@@ -15,7 +15,7 @@ window.addEventListener("load", async () => {
 });
 
 async function deployContract() {
-  const res = await fetch("../contracts/TrustMeet.json");
+  const res = await fetch("../contracts/trustmeet.json");
   const data = await res.json();
   contract = new web3.eth.Contract(data.abi);
 
@@ -35,7 +35,7 @@ async function deployContract() {
 }
 
 async function loadContract() {
-  const res = await fetch("../contracts/TrustMeet.json");
+  const res = await fetch("../contracts/trustmeet.json");
   const data = await res.json();
   const address = document.getElementById("contractAddress").value;
   contractInstance = new web3.eth.Contract(data.abi, address);
