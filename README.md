@@ -3,7 +3,7 @@
 TrustMeet 是一个基于智能合约的见面约定系统，旨在为参与者提供一个公平透明的见面约定平台。在该平台上，参与者支付押金并确认是否到场，未到场的人押金将奖励给到场的参与者。
 
 
-***！！！防止朋友说好要来但是一直鸽你***
+**！！！防止朋友说好要来但是一直鸽你**
 
 合约地址: [https://darcygail.github.io/trustmeet/](https://darcygail.github.io/trustmeet/)
 
