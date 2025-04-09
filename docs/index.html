@@ -4,11 +4,27 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>TrustMeet</title>
+  
+  <!-- 引入 Web3.js -->
+  <script src="https://cdn.jsdelivr.net/npm/web3@1.5.2/dist/web3.min.js"></script>
+
+  <!-- 引入 Tailwind CSS -->
   <script src="https://cdn.tailwindcss.com"></script>
 </head>
 <body class="bg-gray-100 font-sans p-4">
-  <div class="max-w-2xl mx-auto bg-white p-6 shadow-xl rounded-2xl space-y-6">
 
+  <!-- 错误弹窗 -->
+  <div id="errorModal" class="fixed inset-0 bg-gray-800 bg-opacity-50 flex justify-center items-center hidden">
+    <div class="bg-white p-6 rounded-lg max-w-sm w-full">
+      <h3 id="errorTitle" class="text-xl text-red-600 font-semibold">错误</h3>
+      <p id="errorMessage" class="text-gray-700 mt-2"></p>
+      <button onclick="closeModal()" class="mt-4 bg-red-500 text-white px-4 py-2 rounded-md hover:bg-red-600">
+        关闭
+      </button>
+    </div>
+  </div>
+
+  <div class="max-w-2xl mx-auto bg-white p-6 shadow-xl rounded-2xl space-y-6">
     <h1 class="text-3xl font-bold text-center text-indigo-600">🤝 TrustMeet 见面合约</h1>
 
     <!-- 合约部署 -->
@@ -31,38 +47,7 @@
       </button>
     </div>
 
-    <!-- 邀请功能 -->
-    <div class="border-t pt-4 space-y-2">
-      <h2 class="text-xl font-semibold text-gray-700">2. 邀请参与者</h2>
-      <div class="flex gap-2">
-        <input id="invitee" type="text" placeholder="钱包地址" class="flex-1 p-2 border rounded-lg" />
-        <button onclick="invite()" class="bg-green-500 hover:bg-green-600 text-white px-4 py-2 rounded-lg">
-          ➕ 邀请
-        </button>
-      </div>
-    </div>
-
-    <!-- 加入合约 -->
-    <div class="border-t pt-4 space-y-2">
-      <h2 class="text-xl font-semibold text-gray-700">3. 加入见面</h2>
-      <button onclick="join()" class="w-full bg-blue-500 text-white py-2 rounded-xl hover:bg-blue-600 transition">
-        🙋‍♂️ 支付押金加入
-      </button>
-    </div>
-
-    <!-- 到达确认 -->
-    <div class="border-t pt-4 space-y-2">
-      <h2 class="text-xl font-semibold text-gray-700">4. 到场确认</h2>
-      <button onclick="confirmArrival()" class="w-full bg-purple-500 text-white py-2 rounded-xl hover:bg-purple-600 transition">
-        📍 确认到达
-      </button>
-    </div>
-
-    <!-- 合约地址显示 -->
-    <div class="border-t pt-4">
-      <p class="text-sm text-gray-600">当前合约地址：</p>
-      <p id="contractAddress" class="text-indigo-700 font-mono break-all"></p>
-    </div>
+    <!-- 其他功能... -->
 
   </div>
 

@@ -63,3 +63,23 @@ async function join() {
 async function confirmArrival() {
   await contractInstance.methods.confirmArrival().send({ from: userAccount });
 }
+
+// 显示错误弹窗
+function showError(message) {
+  const modal = document.getElementById("errorModal");
+  const errorMessage = document.getElementById("errorMessage");
+  const errorTitle = document.getElementById("errorTitle");
+
+  // 设置弹窗的标题和消息
+  errorTitle.textContent = "发生错误";
+  errorMessage.textContent = message;
+
+  // 显示弹窗
+  modal.style.display = "flex";
+}
+
+// 关闭弹窗
+function closeModal() {
+  const modal = document.getElementById("errorModal");
+  modal.style.display = "none";
+}
