@@ -21,11 +21,12 @@ async function deployContract() {
 
   const deposit = document.getElementById("depositAmount").value;
   const meetTime = getTimestampFromInput("meetTime");
+  const meetLocation = document.getElementById("meetLocation").value;
 
   contract
     .deploy({
       data: data.bytecode,
-      arguments: [web3.utils.toWei(deposit, "ether"), meetTime],
+      arguments: [web3.utils.toWei(deposit, "ether"), meetTime, meetLocation],
     })
     .send({ from: userAccount })
     .then((instance) => {
