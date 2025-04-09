@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <title>TrustMeet</title>
+  <script src="https://cdn.jsdelivr.net/npm/web3@1.10.0/dist/web3.min.js"></script>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <h1>TrustMeet</h1>
+
+  <div>
+    <label>押金金额 (ETH): <input id="depositAmount" type="number" /></label>
+    <label>见面时间 (时间戳): <input id="meetTime" type="number" /></label>
+    <button onclick="deployContract()">发起见面</button>
+  </div>
+
+  <div>
+    <label>合约地址: <input id="contractAddress" type="text" /></label>
+    <button onclick="loadContract()">加载合约</button>
+  </div>
+
+  <div>
+    <label>邀请地址: <input id="invitee" type="text" /></label>
+    <button onclick="invite()">邀请朋友</button>
+  </div>
+
+  <div>
+    <button onclick="join()">加入并支付押金</button>
+  </div>
+
+  <div>
+    <button onclick="confirmArrival()">确认到达</button>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
