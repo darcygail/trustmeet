@@ -47,7 +47,38 @@
       </button>
     </div>
 
-    <!-- 其他功能... -->
+    <!-- 邀请功能 -->
+    <div class="border-t pt-4 space-y-2">
+      <h2 class="text-xl font-semibold text-gray-700">2. 邀请参与者</h2>
+      <div class="flex gap-2">
+        <input id="invitee" type="text" placeholder="钱包地址" class="flex-1 p-2 border rounded-lg" />
+        <button onclick="invite()" class="bg-green-500 hover:bg-green-600 text-white px-4 py-2 rounded-lg">
+          ➕ 邀请
+        </button>
+      </div>
+    </div>
+
+    <!-- 加入合约 -->
+    <div class="border-t pt-4 space-y-2">
+      <h2 class="text-xl font-semibold text-gray-700">3. 加入见面</h2>
+      <button onclick="join()" class="w-full bg-blue-500 text-white py-2 rounded-xl hover:bg-blue-600 transition">
+        🙋‍♂️ 支付押金加入
+      </button>
+    </div>
+
+    <!-- 到达确认 -->
+    <div class="border-t pt-4 space-y-2">
+      <h2 class="text-xl font-semibold text-gray-700">4. 到场确认</h2>
+      <button onclick="confirmArrival()" class="w-full bg-purple-500 text-white py-2 rounded-xl hover:bg-purple-600 transition">
+        📍 确认到达
+      </button>
+    </div>
+
+    <!-- 合约地址显示 -->
+    <div class="border-t pt-4">
+      <p class="text-sm text-gray-600">当前合约地址：</p>
+      <p id="contractAddress" class="text-indigo-700 font-mono break-all"></p>
+    </div>
 
   </div>
 
