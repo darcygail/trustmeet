@@ -11,7 +11,9 @@
 
   <div>
     <label>押金金额 (ETH): <input id="depositAmount" type="number" /></label>
-    <label>见面时间 (时间戳): <input id="meetTime" type="number" /></label>
+    <label>见面时间: 
+        <input id="meetTime" type="datetime-local" />
+    </label>      
     <button onclick="deployContract()">发起见面</button>
   </div>
 

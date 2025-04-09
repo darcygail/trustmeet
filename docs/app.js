@@ -20,7 +20,7 @@ async function deployContract() {
   contract = new web3.eth.Contract(data.abi);
 
   const deposit = document.getElementById("depositAmount").value;
-  const meetTime = document.getElementById("meetTime").value;
+  const meetTime = getTimestampFromInput("meetTime");
 
   contract
     .deploy({
@@ -41,6 +41,11 @@ async function loadContract() {
   contractInstance = new web3.eth.Contract(data.abi, address);
   alert("合约已加载");
 }
+
+function getTimestampFromInput(inputId) {
+    const datetime = document.getElementById(inputId).value;
+    return Math.floor(new Date(datetime).getTime() / 1000); // 转为秒级时间戳
+}  
 
 async function invite() {
   const invitee = document.getElementById("invitee").value;
