@@ -5,6 +5,8 @@ TrustMeet 是一个基于智能合约的见面约定系统，旨在为参与者�
 
 ***！！！防止朋友说好要来但是一直鸽你***
 
+合约地址: [https://darcygail.github.io/trustmeet/](https://darcygail.github.io/trustmeet/)
+
 ## 功能
 
 - **合约创建**：合约发起者可以设置见面时间、地点以及参与者的押金。
