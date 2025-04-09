@@ -9,8 +9,14 @@ window.addEventListener("load", async () => {
     await window.ethereum.enable();
     const accounts = await web3.eth.getAccounts();
     userAccount = accounts[0];
+
   } else {
     alert("请安装 MetaMask 扩展");
+  }
+  const urlParams = new URLSearchParams(window.location.search);
+  const address = urlParams.get('contract_address');
+  if (address) {
+      document.getElementById('contractAddress').innerText = `合约地址: ${address}`;
   }
 });
 
@@ -31,7 +37,21 @@ async function deployContract() {
     .send({ from: userAccount })
     .then((instance) => {
       contractInstance = instance;
-      alert("部署成功，合约地址: " + instance.options.address);
+
+      contractAddress = result.options.address;
+
+      // 显示合约地址
+      document.getElementById('contractAddress').innerText = `合约地址: ${contractAddress}`;
+
+      // 生成邀请链接并显示
+      const inviteUrl = `${window.location.href}?contract_address=${contractAddress}`;
+      document.getElementById('invitationUrl').innerText = inviteUrl;
+
+      // 允许复制邀请链接
+      document.getElementById('invitationUrl').addEventListener('click', () => {
+          navigator.clipboard.writeText(inviteUrl);
+      });
+      alert("部署成功，邀请链接已复制,合约地址: " + instance.options.address);
     });
 }
 
@@ -50,7 +70,7 @@ function getTimestampFromInput(inputId) {
 
 async function invite() {
   const invitee = document.getElementById("invitee").value;
-  await contractInstance.methods.invite(invitee).send({ from: userAccount });
+  await contractInstance.methods.inviteParticipant(invitee).send({ from: userAccount });
 }
 
 async function join() {
